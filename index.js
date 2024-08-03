@@ -1,1 +1,1 @@
-export { metaUpdateHead as tuiRouterMeta } from './lib/tuiMeta.js';
+export { metaUpdateHead as tuiMeta } from './lib/tuiMeta.js';
