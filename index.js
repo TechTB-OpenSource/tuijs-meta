@@ -1,1 +1,2 @@
-export { metaUpdateHead as tuiMeta } from './lib/tuiMeta.js';
+import { metaUpdateHead as tuiMeta } from './lib/tuiMeta.js';
+export default tuiMeta;
