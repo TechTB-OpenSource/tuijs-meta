@@ -1,9 +1,11 @@
 {
   "name": "tui-meta",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A JavaScript utility that manipulates meta data tags based on JSON data.",
   "main": "./index.js",
   "author": "TechTB",
+  "license": "MIT",
+  "repository": "github:TechTB-OpenSource/tui-meta",
   "dependencies": {
     "ttbjs": "^1.1.0"
   },
