@@ -1,6 +1,6 @@
-# TUI-Meta
+# TUIJS-Meta
 ## A simple and easy utility that updates a web application's meta tags based on a provided set of site data.
-***TUI-Meta is built on modules. A bundler is recommended.***
+***TUIJS-Meta is built on modules. A bundler is recommended.***
 
 ***Last Updated 08/05/2024***
 

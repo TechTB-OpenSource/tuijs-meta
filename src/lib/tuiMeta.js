@@ -1,4 +1,4 @@
-import { checkIsObject, checkIsArray } from 'ttbjs';
+import { checkIsObject, checkIsArray } from 'tuijs-util';
 
 /**
  * @typedef {Object} MetaDataTag - A single meta tag data set.
