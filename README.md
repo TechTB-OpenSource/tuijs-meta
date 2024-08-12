@@ -8,7 +8,7 @@
 ## Getting Started
 1. Ensure that you have a set of site data (We will refer to this as 'siteData') created. This can be a JSON file, data in a database, or an Object directly in your JS code. As long as the resulting data is an Object following the format below. For this example we will use a JSON file.
     - The 'siteData' will always consist of a parent Object.
-    - The Objects contained within the 'siteData' parent Object should each represent a route path, except for the site wide data which should always be '\*'. The '\*' Object will represent data that is intended to be site wide, and can be empty or non-existent if desired. ***The Object names do not currently matter as long as they are referenced correctly when the 'tuiMeta' function is called. However, once TUI-Meta is integrated into TUI-Router, the naming standard for site data and route data will become important.***
+    - The Objects contained within the 'siteData' parent Object should each represent a route path, except for the site wide data which should always be '\*'. The '\*' Object will represent data that is intended to be site wide, and can be empty or non-existent if desired. ***The Object names do not currently matter as long as they are referenced correctly when the 'tuiMeta' function is called. However, once tuijs-meta is integrated into TUI-Router, the naming standard for site data and route data will become important.***
     - Inside the value of each site or route Object, there will be two important keys, 'title' and 'meta'. The 'title' key value will be a string representing the title of the site or page. The 'meta' key value will be an Array of Objects containing meta tag attributes. Each Object can contain as many or as few attributes as needed, but each Object will only ever represent one meta tag.
 
 ```json
@@ -80,13 +80,13 @@
 }
 ```
 
-2. Import the primary function 'tuiMeta' from 'tui-meta'.
+2. Import the primary function 'tuiMeta' from 'tuijs-meta'.
     - If you are working with a multi-page app, this should be in the JS file for each page.
     - If you you are working with a single-page app, this should be done where ever you route logic is.
     - ***The 'tuiMeta' function is exported as default.***
 
 ```js
-import tuiMeta from 'tui-meta';
+import tuiMeta from 'tuijs-meta';
 ```
 
 3. Execute the 'tuiMeta function' using the desired site or route data from the siteData source. ***It is important to note that you must use one of the seconds Objects as the parameter and NOT the full site data Object.***

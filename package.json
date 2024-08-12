@@ -1,7 +1,7 @@
 {
   "name": "tuijs-meta",
-  "version": "0.0.5",
-  "description": "A JavaScript utility that manipulates meta data tags based on JSON data.",
+  "version": "0.0.6",
+  "description": "A JavaScript utility that manipulates meta data tags based on provided data.",
   "main": "src/index.js",
   "author": "TechTB",
   "license": "MIT",
