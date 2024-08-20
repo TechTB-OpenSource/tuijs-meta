@@ -122,7 +122,7 @@ tuiMeta(siteData['*']);
 1. When the 'tuiMeta' function is called, the site data provided is first checked to ensure that it is an Object.
 2. The function then validates that the 'title' key exists.
     - If the 'title' key exists, the function attempts to update the document title with the 'title' key value.
-    - If the 'title' key DOES NOT exists, no error is generated and the function just moved on.
+    - If the 'title' key DOES NOT exists, no error is generated and the function just moves on.
 2. The function then validates that the 'meta' key exists.
     - If the 'meta' key exists, the function then validates that the value of the 'meta' key is an Array, throwing an error if it is not.
     -If the 'meta' key value is an Array, then the function attempts to update the document meta tags with the 'meta' key Array data. As as reminder this Array consists of Objects, each representing a single meta tag. Within each Object, there is a set as many or as few key/value pairs as needed, each representing a single meta tag attribute and its value.
