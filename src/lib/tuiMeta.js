@@ -42,7 +42,7 @@ export function metaUpdateHead(data) {
         }
         return;
     } catch (er) {
-        throw new Error(er);
+        throw new Error(er.message);
     }
 }
 
@@ -87,7 +87,7 @@ export function metaUpdateTag(data) {
         document.head.appendChild(elmMeta);
         return;
     } catch (er) {
-        throw new Error(er);
+        throw new Error(er.message);
     }
 }
 
