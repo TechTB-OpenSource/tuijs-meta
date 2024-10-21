@@ -1,6 +1,6 @@
 {
   "name": "tuijs-meta",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A JavaScript utility that manipulates meta data tags based on provided data.",
   "main": "src/index.js",
   "author": "TechTB",
@@ -8,6 +8,6 @@
   "repository": "github:TechTB-OpenSource/tuijs-meta",
   "type": "module",
   "dependencies": {
-    "tuijs-util": "^1.1.4"
+    "tuijs-util": "^1.3.4"
   }
 }
