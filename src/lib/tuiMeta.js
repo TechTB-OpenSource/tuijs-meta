@@ -42,7 +42,8 @@ export function metaUpdateHead(data) {
         }
         return;
     } catch (er) {
-        throw new Error(`TUI Meta Error: ${er.message}`);
+        console.error(`TUI Meta Error: ${er}`);
+        return false;
     }
 }
 
@@ -78,7 +79,6 @@ export function metaUpdateTag(data) {
             }
         }
 
-
         let elmMeta = document.createElement('meta');
         Object.keys(data).forEach(key => {
             elmMeta.setAttribute(key, data[key]);
@@ -86,7 +86,7 @@ export function metaUpdateTag(data) {
         document.head.appendChild(elmMeta);
         return true;
     } catch (er) {
-        console.error(`TUI Meta Error: ${er.message}`);
+        console.error(`TUI Meta Error: ${er}`);
         return false;
     }
 }
