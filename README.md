@@ -126,4 +126,4 @@ tuiMeta(siteData['*']);
 2. The function then validates that the 'meta' key exists.
     - If the 'meta' key exists, the function then validates that the value of the 'meta' key is an Array, throwing an error if it is not.
     -If the 'meta' key value is an Array, then the function attempts to update the document meta tags with the 'meta' key Array data. As as reminder this Array consists of Objects, each representing a single meta tag. Within each Object, there is a set as many or as few key/value pairs as needed, each representing a single meta tag attribute and its value.
-    - If the 'meta' key DOES NOT exists, no error is generated and the function just moved on.
+    - If the 'meta' key DOES NOT exists, no error is generated and the function just moves on.

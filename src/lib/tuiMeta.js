@@ -50,8 +50,7 @@ export function metaUpdateHead(data) {
  * Creates a new meta tag with the provided meta data.
  * Any existing meta tag with any matching attribute key/value pair, excluding 'content' keys, will be removed.
  * @param {MetaDataArray} data - The meta data for the site or route.
- * @returns {void}
- * @throws {Error} - If the provided data is not an object.
+ * @returns {boolean} - Returns boolean indicating the success of the meta update.
  */
 export function metaUpdateTag(data) {
     try {
@@ -85,9 +84,10 @@ export function metaUpdateTag(data) {
             elmMeta.setAttribute(key, data[key]);
         });
         document.head.appendChild(elmMeta);
-        return;
+        return true;
     } catch (er) {
-        throw new Error(`TUI Meta Error: ${er.message}`);
+        console.error(`TUI Meta Error: ${er.message}`);
+        return false;
     }
 }
 
