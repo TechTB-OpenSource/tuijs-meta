@@ -8,6 +8,9 @@
   "repository": "github:TechTB-OpenSource/tuijs-meta",
   "type": "module",
   "dependencies": {
-    "tuijs-util": "^1.4.9"
+    "tuijs-util": "^1.5.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
   }
 }

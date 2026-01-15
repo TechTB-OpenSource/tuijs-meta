@@ -1,28 +1,5 @@
 import { checkIsObject, checkIsArray } from 'tuijs-util';
 
-/**
- * @typedef {Object} MetaDataTag - A single meta tag data set.
- * @property {string} key - The key of a single meta tag attribute.
- * @property {string} value - The value of a single meta tag attribute.
- * @property {Object<string, string>} [attributes] - A list of attribute pairs for a single meta tag. No expectation for number of pairs.
- */
-
-/**
- * @typedef {MetaDataTag[]} MetaDataArray - A list of meta tag data set objects for a single route or site.
- */
-
-/**
- * @typedef {Object} SiteRouteData - The site or route data object.
- * @property {string} title - The site or route title.
- * @property {MetaDataArray} meta - The meta data for the site or route.
- */
-
-/**
- * Updates the document head with the provided site or route data.
- * @param {SiteRouteData} data - Site or route data object.
- * @returns {void}
- * @throws {Error} - If the provided data is not an object or meta data is not an array.
- */
 export function metaUpdateHead(data) {
     try {
         if (!checkIsObject(data)) {
