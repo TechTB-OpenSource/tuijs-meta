@@ -1,40 +1,31 @@
-import { checkIsObject, checkIsArray } from 'tuijs-util';
+import type { MetaRoute, MetaTag } from './models.js';
 
-export function metaUpdateHead(data) {
-    try {
-        if (!checkIsObject(data)) {
-            throw 'Data provided is not an object.'
+export function createMetaInstance() {
+    const metaData: MetaRoute[] = [];
+
+    function setMetaData(data: MetaRoute) {
+        metaData.length = 0;
+        metaData.push(data);
+    }
+
+    function metaUpdateHead(route: string) {
+        const data = metaData.find(item => item.route === route);
+        if (!data) {
+            return;
         }
         if (data.title) {
             document.title = data.title;
         }
         if (data.meta) {
             let dataMeta = data.meta;
-            if (!checkIsArray(dataMeta)) {
-                throw 'Site or page meta data is not an array as expected.'
-            }
             for (let i = 0; i < dataMeta.length; i++) {
                 metaUpdateTag(dataMeta[i]);
             }
         }
         return;
-    } catch (er) {
-        console.error(`TUI Meta Error: ${er}`);
-        return false;
     }
-}
 
-/**
- * Creates a new meta tag with the provided meta data.
- * Any existing meta tag with any matching attribute key/value pair, excluding 'content' keys, will be removed.
- * @param {MetaDataArray} data - The meta data for the site or route.
- * @returns {boolean} - Returns boolean indicating the success of the meta update.
- */
-export function metaUpdateTag(data) {
-    try {
-        if (!checkIsObject(data)) {
-            throw 'Data provided is not an object.'
-        }
+    function metaUpdateTag(data: MetaTag) {
         // Remove existing meta tags with matching attributes
         const existingMetaTags = document.getElementsByTagName('meta');
         for (let i = 0; i < existingMetaTags.length; i++) {
@@ -62,9 +53,10 @@ export function metaUpdateTag(data) {
         });
         document.head.appendChild(elmMeta);
         return true;
-    } catch (er) {
-        console.error(`TUI Meta Error: ${er}`);
-        return false;
+    }
+
+    return {
+        setMetaData,
+        metaUpdateHead
     }
 }
-
