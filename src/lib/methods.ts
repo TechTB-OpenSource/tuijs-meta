@@ -25,14 +25,14 @@ export function createMetaInstance() {
         return;
     }
 
-    function metaUpdateTag(data: MetaTag) {
+    function metaUpdateTag(metaTagList: MetaTag) {
         // Remove existing meta tags with matching attributes
-        const existingMetaTags = document.getElementsByTagName('meta');
-        for (let i = 0; i < existingMetaTags.length; i++) {
-            const metaTag = existingMetaTags[i];
+        const existingMetaTagList = document.getElementsByTagName('meta');
+        for (let i = 0; i < existingMetaTagList.length; i++) {
+            const metaTag = existingMetaTagList[i];
             let hasMatchingAttribute = false; // Assume no matching attribute initially
-            // Check if any attribute in 'data' matches (ignore 'content' key)
-            for (const [key, value] of Object.entries(data)) {
+            // Check if any attribute in 'metaTagList' matches (ignore 'content' key)
+            for (const [key, value] of Object.entries(metaTagList)) {
                 if (key === 'content') continue; // Skip the 'content' key
 
                 if (metaTag.getAttribute(key) === value) {
