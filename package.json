@@ -2,11 +2,22 @@
   "name": "tuijs-meta",
   "version": "0.0.10",
   "description": "A JavaScript utility that manipulates meta data tags based on provided data.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "author": "TechTB",
   "license": "MIT",
   "repository": "github:TechTB-OpenSource/tuijs-meta",
   "type": "module",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc"
+  },
   "dependencies": {
     "tuijs-util": "^1.5.1"
   },
