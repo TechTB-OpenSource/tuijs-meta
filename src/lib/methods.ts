@@ -9,15 +9,32 @@ export function createMetaInstance() {
     }
 
     function metaUpdateHead(route: string) {
-        const data: MetaRoute | undefined = metaData.find(item => item.route === route);
-        if (!data) {
+        let globalRouteMeta, specifiedRouteMeta: MetaRoute | undefined;
+        for (let i = 0; i < metaData.length; i++) {
+            const item = metaData[i];
+            if (item.route === '*') globalRouteMeta = item;
+            if (item.route === route) specifiedRouteMeta = item;
+            if (globalRouteMeta && specifiedRouteMeta) break;
+        }
+
+        if (globalRouteMeta) {
+            if (globalRouteMeta.meta) {
+                const globalMeta: MetaTag[] = globalRouteMeta.meta;
+                for (let i = 0; i < globalMeta.length; i++) {
+                    metaUpdateTag(globalMeta[i]);
+                }
+            }
+        }
+        if (!specifiedRouteMeta) {
             return;
         }
-        if (data.title) {
-            document.title = data.title;
+        if (specifiedRouteMeta.title) {
+            document.title = specifiedRouteMeta.title;
+        } else if (globalRouteMeta && globalRouteMeta.title) {
+            document.title = globalRouteMeta.title;
         }
-        if (data.meta) {
-            const dataMeta: MetaTag[] = data.meta;
+        if (specifiedRouteMeta.meta) {
+            const dataMeta: MetaTag[] = specifiedRouteMeta.meta;
             for (let i = 0; i < dataMeta.length; i++) {
                 metaUpdateTag(dataMeta[i]);
             }
@@ -27,8 +44,11 @@ export function createMetaInstance() {
 
     function metaUpdateTag(newMetaTag: MetaTag) {
         const existingMetaTagList = Array.from(document.getElementsByTagName('meta'));
-        const { typeKey, typeValue } = newMetaTag;
         
+        // Find the meta type key and value dynamically
+        const metaEntries = Object.entries(newMetaTag).filter(([key]) => key !== 'content');
+        const [typeKey, typeValue] = metaEntries[0];
+
         // Remove existing meta tags that match the typeKey and typeValue
         existingMetaTagList.forEach(existingMetaTag => {
             if (existingMetaTag.getAttribute(typeKey) === typeValue) {
@@ -38,7 +58,7 @@ export function createMetaInstance() {
 
         // Create and append the new meta tag
         const elmMeta = document.createElement('meta');
-        elmMeta.setAttribute(newMetaTag.typeKey, newMetaTag.typeValue);
+        elmMeta.setAttribute(typeKey, typeValue);
         elmMeta.setAttribute('content', newMetaTag.content);
         document.head.appendChild(elmMeta);
         return true;

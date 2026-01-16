@@ -1,13 +1,14 @@
 {
   "name": "tuijs-meta",
-  "version": "0.0.10",
+  "version": "0.1.1",
   "description": "A JavaScript utility that manipulates meta data tags based on provided data.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
     }
   },
   "author": "TechTB",
@@ -15,13 +16,14 @@
   "repository": "github:TechTB-OpenSource/tuijs-meta",
   "type": "module",
   "scripts": {
-    "clean": "rm -rf dist",
+    "clean": "rimraf dist",
     "build": "npm run clean && tsc"
   },
   "dependencies": {
     "tuijs-util": "^1.5.1"
   },
   "devDependencies": {
+    "rimraf": "^6.0.1",
     "typescript": "^5.9.3"
   }
 }
