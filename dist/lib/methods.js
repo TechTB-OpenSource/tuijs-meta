@@ -4,7 +4,12 @@ export function createMetaInstance() {
         metaData.length = 0;
         metaData.push(...metaRoutes);
     }
-    function metaUpdateHead(route) {
+    function metaUpdate(metaData) {
+        for (let i = 0; i < metaData.length; i++) {
+            metaUpdateTag(metaData[i]);
+        }
+    }
+    function metaRouteUpdate(route) {
         let globalRouteMeta, specifiedRouteMeta;
         for (let i = 0; i < metaData.length; i++) {
             const item = metaData[i];
@@ -60,7 +65,8 @@ export function createMetaInstance() {
     }
     return {
         setMetaData,
-        metaUpdateHead
+        metaUpdate,
+        metaRouteUpdate
     };
 }
 //# sourceMappingURL=methods.js.map

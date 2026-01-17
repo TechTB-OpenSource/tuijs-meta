@@ -8,7 +8,13 @@ export function createMetaInstance() {
         metaData.push(...metaRoutes);
     }
 
-    function metaUpdateHead(route: string) {
+    function metaUpdate(metaData: MetaTag[]) {
+        for (let i = 0; i < metaData.length; i++) {
+            metaUpdateTag(metaData[i]);
+        }
+    }
+
+    function metaRouteUpdate(route: string) {
         let globalRouteMeta, specifiedRouteMeta: MetaRoute | undefined;
         for (let i = 0; i < metaData.length; i++) {
             const item = metaData[i];
@@ -66,6 +72,7 @@ export function createMetaInstance() {
 
     return {
         setMetaData,
-        metaUpdateHead
+        metaUpdate,
+        metaRouteUpdate
     }
 }

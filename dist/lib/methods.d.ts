@@ -1,6 +1,7 @@
-import type { MetaRoute } from './models.js';
+import type { MetaRoute, MetaTag } from './models.js';
 export declare function createMetaInstance(): {
     setMetaData: (metaRoutes: MetaRoute[]) => void;
-    metaUpdateHead: (route: string) => void;
+    metaUpdate: (metaData: MetaTag[]) => void;
+    metaRouteUpdate: (route: string) => void;
 };
 //# sourceMappingURL=methods.d.ts.map
