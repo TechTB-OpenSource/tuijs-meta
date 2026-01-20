@@ -22,7 +22,10 @@ export function createMetaInstance() {
             if (item.route === route) specifiedRouteMeta = item;
             if (globalRouteMeta && specifiedRouteMeta) break;
         }
-
+        if (!globalRouteMeta && !specifiedRouteMeta) {
+            console.error(`tuijs-meta: No meta data found for route "${route}", and no global meta route defined.`);
+            return;
+        }
         if (globalRouteMeta) {
             if (globalRouteMeta.meta) {
                 const globalMeta: MetaTag[] = globalRouteMeta.meta;
@@ -32,12 +35,14 @@ export function createMetaInstance() {
             }
         }
         if (!specifiedRouteMeta) {
+            document.title = globalRouteMeta?.title || 'Unknown Page';
+            console.warn(`tuijs-meta: No specific meta data found for route "${route}".`);
             return;
         }
         if (specifiedRouteMeta.title) {
             document.title = specifiedRouteMeta.title;
-        } else if (globalRouteMeta && globalRouteMeta.title) {
-            document.title = globalRouteMeta.title;
+        } else {
+            document.title = globalRouteMeta?.title || 'Unknown Page';
         }
         if (specifiedRouteMeta.meta) {
             const dataMeta: MetaTag[] = specifiedRouteMeta.meta;
