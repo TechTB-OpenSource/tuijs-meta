@@ -4,4 +4,4 @@ export declare function createMetaInstance(): {
     metaUpdate: (metaData: MetaTag[]) => void;
     metaRouteUpdate: (route: string) => void;
 };
-//# sourceMappingURL=methods.d.ts.map
+//# sourceMappingURL=service.d.ts.map

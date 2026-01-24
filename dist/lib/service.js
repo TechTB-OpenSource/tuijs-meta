@@ -75,4 +75,4 @@ export function createMetaInstance() {
         metaRouteUpdate
     };
 }
-//# sourceMappingURL=methods.js.map
+//# sourceMappingURL=service.js.map
