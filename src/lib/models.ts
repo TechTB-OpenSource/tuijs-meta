@@ -10,4 +10,12 @@ export interface MetaRoute {
     route: string;
     title?: string;
     meta?: Array<MetaTag>;
+    map?: Map;
+}
+
+export interface Map {
+    loc: string;
+    lastmod?: string;
+    changefreq?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+    priority?: number;
 }

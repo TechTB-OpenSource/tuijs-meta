@@ -17,7 +17,8 @@
   "type": "module",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm run clean && tsc"
+    "build": "npm run clean && tsc",
+    "sitemap": "node ./bin/index.js"
   },
   "dependencies": {
     "tuijs-util": "^1.5.1"

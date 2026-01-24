@@ -1,0 +1,13 @@
+{
+  "name": "bin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "TechTB",
+  "type": "module",
+  "dependencies": {
+    "jsdom": "^27.4.0",
+    "smart-log-node": "^1.1.4",
+    "tuijs-util": "^1.5.1"
+  }
+}
