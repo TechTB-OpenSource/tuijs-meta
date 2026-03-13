@@ -1,7 +1,6 @@
 # TUIJS-Meta
 *** THIS README IS OUT OF DATE AND WILL BE UPDATED SOON ***
 ## A simple and easy utility that updates a web application's meta tags based on a provided set of site data.
-***TUIJS-Meta is built on modules. A bundler is recommended.***
 
 ***Last Updated 08/05/2024***
 
